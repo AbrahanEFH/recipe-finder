@@ -51,6 +51,19 @@ function iniciarApp() {
             recetaImagen.alt = `Imagen de la receta ${strMeal}`
             recetaImagen.src = strMealThumb
 
+            const recetaCardBody = document.createElement('DIV')
+            recetaCardBody.classList.add('card-body')
+
+            const recetaHeading = document.createElement('H3')
+            recetaHeading.classList.add('card-title', 'mb-3')
+            recetaHeading.textContent = strMeal
+
+            const recetaButton = document.createElement('BUTTON')
+            recetaButton.classList.add('btn', 'btn-danger', 'w-100')
+            recetaButton.textContent = 'Ver Receta'
+
+            // Inyectar en el codigo HTML
+
             console.log(recetaImagen)
         })
     }
