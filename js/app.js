@@ -3,6 +3,8 @@ function iniciarApp() {
     const selectCategorias = document.querySelector('#categorias')
     selectCategorias.addEventListener('change', seleccionarCategoria)
 
+    const resultado = document.querySelector('#resultado')
+
     obtenerategorias()
 
     function obtenerategorias() {
@@ -63,6 +65,16 @@ function iniciarApp() {
             recetaButton.textContent = 'Ver Receta'
 
             // Inyectar en el codigo HTML
+
+            recetaCard.appendChild(recetaImagen)
+            recetaCard.appendChild(recetaCardBody)
+
+            recetaCardBody.appendChild(recetaHeading)
+            recetaCardBody.appendChild(recetaButton)
+
+            recetaContenedor.appendChild(recetaCard)
+
+            resultado.appendChild(recetaContenedor)
 
             console.log(recetaImagen)
         })
