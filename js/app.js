@@ -72,6 +72,10 @@ function iniciarApp() {
             recetaButton.classList.add('btn', 'btn-danger', 'w-100')
             recetaButton.textContent = 'Ver Receta'
 
+            // Agregamos el modal
+            recetaButton.dataset.bsTarget = '#modal'
+            recetaButton.dataset.bsToggle = 'modal'
+
             // Inyectar en el codigo HTML
 
             recetaCard.appendChild(recetaImagen)
