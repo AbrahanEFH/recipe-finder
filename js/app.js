@@ -73,8 +73,11 @@ function iniciarApp() {
             recetaButton.textContent = 'Ver Receta'
 
             // Agregamos el modal
-            recetaButton.dataset.bsTarget = '#modal'
-            recetaButton.dataset.bsToggle = 'modal'
+            //recetaButton.dataset.bsTarget = '#modal'
+            //recetaButton.dataset.bsToggle = 'modal'
+            recetaButton.onclick = () => {
+                seleccionarReceta(idMeal)
+            }
 
             // Inyectar en el codigo HTML
 
@@ -88,6 +91,13 @@ function iniciarApp() {
 
             resultado.appendChild(recetaContenedor)
         })
+    }
+
+    function seleccionarReceta(id) {
+        const url = `https://themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+        fetch(url)
+            .then(response => response.json())
+            .then(resultado => console.log(resultado))
     }
 
     function limpiarHtml(replace) {
