@@ -5,6 +5,8 @@ function iniciarApp() {
 
     const resultado = document.querySelector('#resultado')
 
+    const modal = new bootstrap.Modal('#modal', {})
+
     obtenerategorias()
 
     function obtenerategorias() {
@@ -97,7 +99,11 @@ function iniciarApp() {
         const url = `https://themealdb.com/api/json/v1/1/lookup.php?i=${id}`
         fetch(url)
             .then(response => response.json())
-            .then(resultado => console.log(resultado))
+            .then(resultado => mostrarRecetaModal(resultado.meals[0]))
+    }
+
+    function mostrarRecetaModal() {
+
     }
 
     function limpiarHtml(replace) {
