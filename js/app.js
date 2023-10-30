@@ -102,8 +102,23 @@ function iniciarApp() {
             .then(resultado => mostrarRecetaModal(resultado.meals[0]))
     }
 
-    function mostrarRecetaModal() {
+    function mostrarRecetaModal(receta) {
+        //Muestra el modal
+        const { idMeal, strInstructions, strMeal, strMealThumb } = receta
 
+        const modalTitle = document.querySelector('.modal .modal-title')
+        const modalBody = document.querySelector('.modal .modal-body')
+
+        modalTitle.textContent = strMeal
+        modalBody.innerHTML = `
+            <img class='img-fluid' src='${strMealThumb}' alt='receta ${strMeal}'/>
+            <h3 class='my-3'>Instrucciones</h3>
+            <p>${strInstructions}</p>
+        `
+        console.log(receta)
+
+        //Muestra el modal
+        modal.show()
     }
 
     function limpiarHtml(replace) {
