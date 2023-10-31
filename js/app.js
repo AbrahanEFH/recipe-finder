@@ -114,8 +114,8 @@ function iniciarApp() {
             <img class='img-fluid' src='${strMealThumb}' alt='receta ${strMeal}'/>
             <h3 class='my-3'>Instrucciones</h3>
             <p>${strInstructions}</p>
+            <h3 class="my-3">Ingredientes y cantidades</h3>
         `
-        console.log(receta)
 
         const listGroup = document.createElement('UL')
         listGroup.classList.add('list-group')
@@ -128,8 +128,12 @@ function iniciarApp() {
                 const ingredienteLi = document.createElement('LI')
                 ingredienteLi.classList.add('list-group-item')
                 ingredienteLi.textContent = `${ingrediente} - ${cantidad}`
+
+                listGroup.appendChild(ingredienteLi)
             }
         }
+
+        modalBody.appendChild(listGroup)
 
         //Muestra el modal
         modal.show()
