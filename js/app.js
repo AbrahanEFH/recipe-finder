@@ -134,6 +134,16 @@ function iniciarApp() {
         }
 
         modalBody.appendChild(listGroup)
+        //Botones de cerrar y favorito
+
+        const modalFooter = document.querySelector('.modal-footer')
+
+
+        const btnFavorito = document.createElement('BUTTON')
+        btnFavorito.classList.add('btn', 'btn-danger', 'col')
+        btnFavorito.textContent = 'Guardar Favorito'
+
+        modalFooter.appendChild(btnFavorito)
 
         //Muestra el modal
         modal.show()
