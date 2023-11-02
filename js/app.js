@@ -143,7 +143,12 @@ function iniciarApp() {
         btnFavorito.classList.add('btn', 'btn-danger', 'col')
         btnFavorito.textContent = 'Guardar Favorito'
 
+        const btnCerrar = document.createElement('BUTTON')
+        btnCerrar.classList.add('btn', 'btn-secondary', 'col')
+        btnCerrar.textContent = 'Cerrar'
+
         modalFooter.appendChild(btnFavorito)
+        modalFooter.appendChild(btnCerrar)
 
         //Muestra el modal
         modal.show()
