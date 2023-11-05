@@ -1,15 +1,24 @@
 function iniciarApp() {
 
     const selectCategorias = document.querySelector('#categorias')
-    selectCategorias.addEventListener('change', seleccionarCategoria)
+
+    if (seleccionarCategoria) {
+        selectCategorias.addEventListener('change', seleccionarCategoria)
+        obtenerCategorias()
+
+    }
+
+    const favoritosDiv = document.querySelector('.favoritos')
+    if (favoritosDiv) {
+        obtenerFavoritos()
+    }
 
     const resultado = document.querySelector('#resultado')
 
     const modal = new bootstrap.Modal('#modal', {})
 
-    obtenerategorias()
 
-    function obtenerategorias() {
+    function obtenerCategorias() {
         const url = 'https://www.themealdb.com/api/json/v1/1/categories.php'
         fetch(url)
             .then(response => {
@@ -201,6 +210,10 @@ function iniciarApp() {
         const toast = new bootstrap.Toast(toastDiv)
         toastBody.textContent = mensaje
         toast.show()
+    }
+
+    function obtenerFavoritos() {
+
     }
 
     function limpiarHtml(replace) {
