@@ -1,8 +1,9 @@
 function iniciarApp() {
 
+    const resultado = document.querySelector('#resultado')
     const selectCategorias = document.querySelector('#categorias')
 
-    if (seleccionarCategoria) {
+    if (selectCategorias) {
         selectCategorias.addEventListener('change', seleccionarCategoria)
         obtenerCategorias()
 
@@ -13,7 +14,6 @@ function iniciarApp() {
         obtenerFavoritos()
     }
 
-    const resultado = document.querySelector('#resultado')
 
     const modal = new bootstrap.Modal('#modal', {})
 
@@ -213,7 +213,16 @@ function iniciarApp() {
     }
 
     function obtenerFavoritos() {
+        const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? []
+        if (favoritos.length) {
 
+            return
+        }
+
+        const noFavoritos = document.createElement('P')
+        noFavoritos.textContent = ' No hay favoritos aun'
+        noFavoritos.classList.add('fs-4', 'text-center', 'font-bold', 'mt-5')
+        resultado.appendChild(noFavoritos)
     }
 
     function limpiarHtml(replace) {
