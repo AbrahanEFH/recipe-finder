@@ -222,7 +222,7 @@ function iniciarApp() {
         const noFavoritos = document.createElement('P')
         noFavoritos.textContent = ' No hay favoritos aun'
         noFavoritos.classList.add('fs-4', 'text-center', 'font-bold', 'mt-5')
-        resultado.appendChild(noFavoritos)
+        favoritosDiv.appendChild(noFavoritos)
     }
 
     function limpiarHtml(replace) {
