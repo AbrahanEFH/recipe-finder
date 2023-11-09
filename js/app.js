@@ -70,7 +70,7 @@ function iniciarApp() {
             const recetaImagen = document.createElement('IMG')
             recetaImagen.classList.add('card-img-top')
             recetaImagen.alt = `Imagen de la receta ${strMeal}`
-            recetaImagen.src = strMealThumb
+            recetaImagen.src = strMealThumb ?? receta.Img
 
             const recetaCardBody = document.createElement('DIV')
             recetaCardBody.classList.add('card-body')
@@ -87,7 +87,7 @@ function iniciarApp() {
             //recetaButton.dataset.bsTarget = '#modal'
             //recetaButton.dataset.bsToggle = 'modal'
             recetaButton.onclick = () => {
-                seleccionarReceta(idMeal)
+                seleccionarReceta(idMeal ?? receta.id)
             }
 
             // Inyectar en el codigo HTML
@@ -215,7 +215,7 @@ function iniciarApp() {
     function obtenerFavoritos() {
         const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? []
         if (favoritos.length) {
-
+            mostrarRecetas(favoritos)
             return
         }
 
@@ -225,9 +225,9 @@ function iniciarApp() {
         favoritosDiv.appendChild(noFavoritos)
     }
 
-    function limpiarHtml(replace) {
-        while (replace.firstChild) {
-            replace.removeChild(replace.firstChild)
+    function limpiarHtml(selector) {
+        while (selector.firstChild) {
+            selector.removeChild(selector.firstChild)
         }
     }
 }
